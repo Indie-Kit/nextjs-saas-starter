@@ -58,6 +58,27 @@ mv .claude .agent
 
 ## 🛠️ Getting Started
 
+### ⚡️ Quick Start (Recommended)
+
+Run the following command to scaffold a new project interactively:
+
+```bash
+npx indiekit@latest 
+# or
+pnpm dlx indiekit@latest
+# or
+yarn dlx indiekit@latest
+```
+
+This CLI will:
+- 🚀 Scaffold the project instantly (no git history to remove).
+- 🛠️ Guide you through setup options.
+- 📦 Install dependencies automatically.
+
+### 🐢 Manual Setup
+
+If you prefer to clone the repo manually:
+
 ### 1. Clone & Install
 
 ```bash
