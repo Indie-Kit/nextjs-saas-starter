@@ -24,6 +24,9 @@ const FooterSection = () => {
             <Link href="/privacy" className="hover:text-primary">
               Privacy
             </Link>
+            <Link href="/terms" className="hover:text-primary">
+              Terms
+            </Link>
             <Link href="/contact" className="hover:text-primary">
               Contact
             </Link>

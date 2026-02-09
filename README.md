@@ -39,7 +39,7 @@ This is the **Open Source / Lite Version** of [Indie Kit Pro](https://indiekit.p
 
 - 🏠 **Landing Page** (Hero, Features, Pricing, FAQ)
 - 🔐 **Auth Pages** (Sign In, Sign Up)
-- ⚙️ **App Layout** (Sidebar, Header, User Profile)
+- ⚙️ **App Layout** (Header, User Profile)
 - 📄 **Legal Pages** (Privacy, Terms)
 
 ## 🤖 AI-Optimized Architecture
@@ -80,6 +80,8 @@ You will need:
 - **Better Auth Secret**: Run `npx auth secret` to generate.
 - **Stripe Keys**: For payment processing.
 - **Social Keys**: (Google/GitHub, optional).
+
+Also, update `src/lib/config.ts` with your project name, description, and legal details (email, address) which are used in the footer and legal pages.
 
 ### 3. Database Setup
 
