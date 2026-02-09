@@ -1,4 +1,4 @@
-# Indie Kit - The AI-Native Next.js SaaS Starter
+# Indie Kit - The AI-Native Next.js Starter Kit
 
 ![Indie Kit](public/hero.png)
 
@@ -13,23 +13,15 @@
 
 </div>
 
-# The "Cursor-Native" AI Starter Kit 🤖
+# The AI-Native Next.js Starter Kit 🤖
 
-**Stop fighting with your AI editor. Start "Vibe Coding" with a codebase that speaks its language.**
+**Engineered for modern development. Optimized for AI.**
 
-This is the **Open Source / Lite Version** of [Indie Kit Pro](https://indiekit.pro/?utm_source=github-starter&utm_medium=readme&utm_campaign=lite). It comes pre-loaded with **"AI Context Rules"** that turn Cursor, Windsurf, and Claude into expert senior engineers who know your project inside out.
+This is the **Open Source / Lite Version** of [Indie Kit Pro](https://indiekit.pro/?utm_source=github-starter&utm_medium=readme&utm_campaign=lite). It combines a production-grade tech stack with **"AI Context Rules"** that empower LLMs (Cursor, Windsurf, Copilot) to understand your codebase, write bug-free code, and navigate your project autonomously.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge)](https://www.typescriptlang.org/)
-
-## 🧠 "Vibe Coding" Mode
-
-Coding shouldn't feel like wrestling with context windows. We've structured this entire repository to be "AI-Readable" from day one.
-
-- **Self-Documenting Code**: Your AI knows *exactly* where auth lives (`.claude/skills/auth-handler`), how to migrate the DB (`.cursor/rules`), and where to put new components.
-- **No Hallucinations**: We force the AI to use existing patterns (like `withAuthRequired`) instead of inventing broken ones.
-- **One-Shot Prompts**: Paste a single command like `/bootstrap` and watch it scaffold your entire MVP plan.
 
 ## 🚀 Features
 
@@ -47,6 +39,19 @@ Coding shouldn't feel like wrestling with context windows. We've structured this
 - 🔐 **Auth Pages** (Sign In, Sign Up)
 - ⚙️ **App Layout** (Sidebar, Header, User Profile)
 - 📄 **Legal Pages** (Privacy, Terms)
+
+## 🤖 AI-Optimized Architecture
+
+We've structured the codebase to be easily understood by LLMs (Cursor, Windsurf, Copilot, Antigravity). This means fewer hallucinations and better code generation, regardless of which tool you use.
+
+- **Self-Documenting Code**: Your AI knows *exactly* where auth lives (`.claude/skills/auth-handler`), how to migrate the DB (`.cursor/rules`), and where to put new components.
+- **No Hallucinations**: We force the AI to use existing patterns (like `withAuthRequired`) instead of inventing broken ones.
+- **One-Shot Prompts**: Paste a single command like `/bootstrap` and watch it scaffold your entire MVP plan.
+
+💡 **Pro Tip**: To use this kit with Google's Antigravity or other AI agents that expect a `.agent` folder, simply rename `.claude` to `.agent`:
+```bash
+mv .claude .agent
+```
 
 ## 🛠️ Getting Started
 
@@ -87,28 +92,14 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
 
-## 🤖 How to use with AI
+## 🧠 The AI "Brain" (Exclusive)
 
-This is where the magic happens. Open this project in **Cursor** or **Windsurf**.
+This kit is designed to be "read" by LLMs. It includes:
 
-### The Bootstrap Command
-
-Open your AI chat (Cmd+L or Cmd+K) and type:
-
-```
-/bootstrap
-```
-
-The AI will read `.claude/commands/bootstrap.md` and guide you through:
-1.  **Requirements Gathering**: Defining your SaaS idea.
-2.  **Schema Design**: Creating your database tables.
-3.  **API Implementation**: Building secure routes.
-4.  **UI Construction**: Generating forms and pages.
-
-💡 **Pro Tip**: To use this kit with Google's Antigravity or other AI agents that expect a `.agent` folder, simply rename `.claude` to `.agent`:
-```bash
-mv .claude .agent
-```
+- **`.cursor/rules`**: Context-aware rules for Cursor to understand project structure.
+- **Prompt Library**: Pre-written prompts to generate features, DB schemas, and tests.
+- **Self-Correction**: Setup to help AI fix its own linting errors.
+- **Skills**: Specialized instructions for the AI to handle Auth, DB, and Payments correctly.
 
 ## 📦 Project Structure
 
@@ -130,15 +121,6 @@ src/
 │   ├── stripes.ts       # Payment utilities
 │   └── ...
 ```
-
-## 🧠 The AI "Brain" (Exclusive)
-
-This kit is designed to be "read" by LLMs. It includes:
-
-- **`.cursor/rules`**: Context-aware rules for Cursor to understand project structure.
-- **Prompt Library**: Pre-written prompts to generate features, DB schemas, and tests.
-- **Self-Correction**: Setup to help AI fix its own linting errors.
-- **Skills**: Specialized instructions for the AI to handle Auth, DB, and Payments correctly.
 
 ## 💎 Indie Kit Pro vs Starter
 
