@@ -2,29 +2,34 @@
 
 ![Indie Kit](public/hero.png)
 
-**Build your SaaS 10x faster with the "Best Vibe Coding Starter Kit" designed for AI Code Editors (Cursor, Windsurf, Claude).**
+<div align="center">
 
-This is the **Lite Version** of [Indie Kit Pro](https://indiekit.pro/?utm_source=github-starter&utm_medium=readme&utm_campaign=lite). It comes pre-configured with "AI Navigation Rules" that allow LLMs to understand your codebase context, follow best practices, and bootstrap features autonomously.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Indie-Kit/nextjs-saas-starter)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Indie-Kit/nextjs-saas-starter)
 
+[![Star on GitHub](https://img.shields.io/github/stars/Indie-Kit/nextjs-saas-starter?style=social)](https://github.com/Indie-Kit/nextjs-saas-starter/stargazers)
 [![Get Pro Version](https://img.shields.io/badge/Get%20Pro%20Version-Indie%20Kit-blue?style=for-the-badge)](https://indiekit.pro/?utm_source=github-starter&utm_medium=readme&utm_campaign=lite)
 [![Join Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://indiekit.pro/app/discord)
+
+</div>
+
+# The "Cursor-Native" AI Starter Kit 🤖
+
+**Stop fighting with your AI editor. Start "Vibe Coding" with a codebase that speaks its language.**
+
+This is the **Open Source / Lite Version** of [Indie Kit Pro](https://indiekit.pro/?utm_source=github-starter&utm_medium=readme&utm_campaign=lite). It comes pre-loaded with **"AI Context Rules"** that turn Cursor, Windsurf, and Claude into expert senior engineers who know your project inside out.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge)](https://www.typescriptlang.org/)
 
-## 🤖 AI-First Architecture
+## 🧠 "Vibe Coding" Mode
 
-Unlike other starters, this kit includes a dedicated "Brain" for your AI editor. We have mapped the entire project structure into rules that help AI agents navigate, understand, and build safely.
+Coding shouldn't feel like wrestling with context windows. We've structured this entire repository to be "AI-Readable" from day one.
 
-- **`.cursor/rules`**: Context-aware rules for Cursor.
-- **`.windsurf/rules`**: Guidelines for Windsurf IDE.
-- **`.claude/skills`**: Specialized skills for Claude/Cursor Desktop (Auth, DB, Stripe, UI).
-- **`/bootstrap` command**: A special prompt to have the AI build your entire MVP plan.
-
-💡 **Pro Tip**: To use this kit with Google's Antigravity or other AI agents that expect a `.agent` folder, simply rename `.claude` to `.agent`:
-```bash
-mv .claude .agent
-```
+- **Self-Documenting Code**: Your AI knows *exactly* where auth lives (`.claude/skills/auth-handler`), how to migrate the DB (`.cursor/rules`), and where to put new components.
+- **No Hallucinations**: We force the AI to use existing patterns (like `withAuthRequired`) instead of inventing broken ones.
+- **One-Shot Prompts**: Paste a single command like `/bootstrap` and watch it scaffold your entire MVP plan.
 
 ## 🚀 Features
 
@@ -82,7 +87,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
 
-## 🧠 How to use with AI
+## 🤖 How to use with AI
 
 This is where the magic happens. Open this project in **Cursor** or **Windsurf**.
 
@@ -100,14 +105,10 @@ The AI will read `.claude/commands/bootstrap.md` and guide you through:
 3.  **API Implementation**: Building secure routes.
 4.  **UI Construction**: Generating forms and pages.
 
-### Available Skills
-
-The AI has access to specialized "skills" in `.claude/skills/`:
-- **`auth-handler`**: Correctly implement `withAuthRequired` and user sessions.
-- **`db-handler`**: Manage Drizzle schemas and migrations.
-- **`stripe-handler`**: Handle webhooks and checkouts.
-- **`ui-handler`**: Add Shadcn components and style them.
-- **`form-creator`**: Build Zod-validated forms.
+💡 **Pro Tip**: To use this kit with Google's Antigravity or other AI agents that expect a `.agent` folder, simply rename `.claude` to `.agent`:
+```bash
+mv .claude .agent
+```
 
 ## 📦 Project Structure
 
@@ -129,6 +130,15 @@ src/
 │   ├── stripes.ts       # Payment utilities
 │   └── ...
 ```
+
+## 🧠 The AI "Brain" (Exclusive)
+
+This kit is designed to be "read" by LLMs. It includes:
+
+- **`.cursor/rules`**: Context-aware rules for Cursor to understand project structure.
+- **Prompt Library**: Pre-written prompts to generate features, DB schemas, and tests.
+- **Self-Correction**: Setup to help AI fix its own linting errors.
+- **Skills**: Specialized instructions for the AI to handle Auth, DB, and Payments correctly.
 
 ## 💎 Indie Kit Pro vs Starter
 
