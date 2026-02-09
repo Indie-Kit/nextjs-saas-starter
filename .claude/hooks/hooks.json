@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'file=\"$(echo \"$STDIN\" | jq -r .tool_input.file_path)\"; if [[ \"$file\" == *.tsx ]] || [[ \"$file\" == *.jsx ]]; then ext=\"${file##*.}\"; if grep -q \"useState\\|useEffect\\|useReducer\\|useCallback\\|useMemo\" \"$file\" 2>/dev/null; then if ! grep -q \"^['\\\"]use client['\\\"]\" \"$file\" 2>/dev/null; then echo \"⚠️  Warning: Client hooks detected. Add \\'use client\\' directive if needed.\"; fi; fi; fi'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'cmd=\"$(echo \"$STDIN\" | jq -r .tool_input.command)\"; if echo \"$cmd\" | grep -q \"^npm install\\|^yarn add\\|^pnpm add\"; then echo \"📦 Installing dependencies - checking for Next.js compatibility...\"; fi'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'file=\"$(echo \"$STDIN\" | jq -r .tool_input.file_path)\"; if [[ \"$file\" == app/**/page.tsx ]] || [[ \"$file\" == app/**/page.jsx ]]; then dir=\"$(dirname \"$file\")\"; if [ ! -f \"$dir/loading.tsx\" ] && [ ! -f \"$dir/loading.jsx\" ]; then echo \"💡 Tip: Consider adding a loading.tsx for better UX\"; fi; if [ ! -f \"$dir/error.tsx\" ] && [ ! -f \"$dir/error.jsx\" ]; then echo \"💡 Tip: Consider adding an error.tsx for error handling\"; fi; fi'"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'file=\"$(echo \"$STDIN\" | jq -r .tool_input.file_path)\"; if [[ \"$file\" == *.ts ]] || [[ \"$file\" == *.tsx ]]; then if which prettier >/dev/null 2>&1; then prettier --write \"$file\" 2>/dev/null || true; fi; fi'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'echo \"🚀 Want more features? Upgrade to Pro: https://indiekit.pro/\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
