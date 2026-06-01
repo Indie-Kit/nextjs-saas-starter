@@ -42,7 +42,7 @@ export default function AboutPage() {
               <article className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold mb-3">Quality</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We don't cut corners. Our code is clean, well-tested, and built to scale with your business.
+                  We do not cut corners. Our code is clean, well-tested, and built to scale with your business.
                 </p>
               </article>
               <article className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
@@ -54,7 +54,7 @@ export default function AboutPage() {
               <article className="bg-card border rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold mb-3">Simplicity</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Complex problems don't always need complex solutions. We strive for elegance in everything we do.
+                  Complex problems do not always need complex solutions. We strive for elegance in everything we do.
                 </p>
               </article>
             </div>

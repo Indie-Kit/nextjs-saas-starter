@@ -68,8 +68,10 @@ export default function ProfilePage() {
 
       await mutate(); // Refresh user data
       toast.success("Profile updated successfully");
-    } catch (error: any) {
-      toast.error(error.message || "Failed to update profile");
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : "Failed to update profile";
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -115,7 +117,7 @@ export default function ProfilePage() {
                       await mutate();
                       toast.success("Avatar updated");
                     }
-                  } catch (e) {
+                  } catch {
                     toast.error("Failed to update avatar");
                   }
                 }

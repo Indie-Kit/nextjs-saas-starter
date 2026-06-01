@@ -1,8 +1,6 @@
 import {
-  Zap,
   Shield,
   Smartphone,
-  Globe,
   Database,
   CreditCard,
   Layout,
@@ -57,7 +55,7 @@ export default function Features() {
             Everything you need to ship
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            We've handled the boring stuff so you can focus on building your unique value proposition.
+            We have handled the boring stuff so you can focus on building your unique value proposition.
           </p>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-12">

@@ -11,7 +11,7 @@ export default function Pricing() {
             Simple, transparent pricing
           </h2>
           <p className="max-w-[600px] text-muted-foreground md:text-xl">
-            Choose the plan that's right for you and start building today.
+            Choose the plan that is right for you and start building today.
           </p>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8 mt-12">

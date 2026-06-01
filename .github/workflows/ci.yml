@@ -1,0 +1,52 @@
+# Install deps and compile the Next.js app (parity with `pnpm build`).
+#
+# Push/PR CI runs only on the upstream Indie-Kit org repo. Forks and customer
+# clones skip the build job automatically (workflow_dispatch still works everywhere).
+#
+# Actions use Node.js 24-capable majors: actions/checkout@v6, actions/setup-node@v6, pnpm/action-setup@v5.
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.repository_owner == 'Indie-Kit'
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+
+      DATABASE_URL: ${{ vars.CI_DATABASE_URL || 'postgresql://postgres:postgres@127.0.0.1:5432/ci' }}
+      BETTER_AUTH_SECRET: ${{ secrets.CI_BETTER_AUTH_SECRET || 'ci-placeholder-better-auth-secret-32-chars-min!' }}
+      BETTER_AUTH_URL: ${{ vars.CI_BETTER_AUTH_URL || 'https://ci.example.invalid' }}
+      NEXT_PUBLIC_BETTER_AUTH_URL: ${{ vars.CI_NEXT_PUBLIC_BETTER_AUTH_URL || 'https://ci.example.invalid' }}
+      STRIPE_SECRET_KEY: ${{ secrets.CI_STRIPE_SECRET_KEY || 'sk_test_ci_placeholder_only' }}
+      STRIPE_WEBHOOK_SECRET: ${{ secrets.CI_STRIPE_WEBHOOK_SECRET || 'whsec_ci_placeholder_only' }}
+      UPLOADTHING_TOKEN: ${{ secrets.CI_UPLOADTHING_TOKEN || 'ci_uploadthing_placeholder' }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v5
+        with:
+          version: 10.15.1
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm build

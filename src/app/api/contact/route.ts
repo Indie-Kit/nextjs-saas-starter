@@ -11,13 +11,11 @@ const formSchema = z.object({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const validatedBody = formSchema.parse(body);
+    formSchema.parse(body);
 
     // TODO: Send email or save to database
-    console.log("Contact form submission:", validatedBody);
-
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Invalid request" },
       { status: 400 }

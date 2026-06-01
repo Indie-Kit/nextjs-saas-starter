@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import stripe from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
 
 // ----------------------------------------------------------------------
@@ -74,6 +74,15 @@ class StripeWebhookHandler {
 
 export async function POST(req: NextRequest) {
   try {
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    if (!webhookSecret) {
+      console.error("STRIPE_WEBHOOK_SECRET is not configured");
+      return NextResponse.json(
+        { error: "Webhook is not configured" },
+        { status: 503 }
+      );
+    }
+
     const body = await req.text();
     const signature = req.headers.get("stripe-signature");
 
@@ -84,13 +93,14 @@ export async function POST(req: NextRequest) {
     let event: Stripe.Event;
 
     try {
-      event = stripe.webhooks.constructEvent(
+      event = getStripe().webhooks.constructEvent(
         body,
         signature,
-        process.env.STRIPE_WEBHOOK_SECRET!
+        webhookSecret
       );
-    } catch (err: any) {
-      console.error(`⚠️ Webhook signature verification failed.`, err.message);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Unknown error";
+      console.error("Webhook signature verification failed.", message);
       return NextResponse.json(
         { error: "Webhook signature verification failed" },
         { status: 400 }
@@ -120,7 +130,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ received: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Webhook handler failed:", error);
     return NextResponse.json(
       { error: "Webhook handler failed" },
