@@ -22,3 +22,8 @@ overrides:
   qs@<6.15.2: '>=6.15.2'
   '@modelcontextprotocol/sdk>ajv@<8.18.0': '>=8.18.0'
   ws: '^8.20.1'
+
+# deepmerge has no patched release; only reached via the shadcn CLI (devDependency)
+auditConfig:
+  ignoreGhsas:
+    - GHSA-gcqx-w48m-w2h4
